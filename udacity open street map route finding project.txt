@@ -1,0 +1,15 @@
+1st setup Visual Studio, install CMake
+2nd Setup VCPKG as mentioned on https://github.com/Microsoft/vcpkg
+3rd Start Installing Prerequisites as mentioned on https://github.com/cpp-io2d/P0267_RefImpl/blob/master/BUILDING.md to get io2d
+4th Don't build io2d by yourself
+5th cd into vcpkg folder and type ./vcpkg install io2d:x64-windows
+6th Once all the libraries are installed clone project git repo using this exact command
+git clone https://github.com/udacity/CppND-Route-Planning-Project.git --recurse-submodules
+7th mkdir build
+8th open command prompt in build and type cmake -G "Visual Studio 16 19" -DCMAKE_TOOLCHAIN_FILE=C:/Projects/ProjectsC/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_GENERATOR_PLATFORM=x64 ..
+(replace C:/Projects/..path to lead to your vcpkg root folder)
+9th Open .sln file in build
+10th in visual studio change to this setting Project Properties -> C/C++ -> Code Generation -> change Run time library to Multi threaded Debug DLL (/MDd)
+for projects test,gmock, gmock_main, gtest, gtest_main and nothing else.
+11th build OSM something project and it will generate OSM*.exe (pass -f filepathtoosmfile as argument)
+12th build test project and it will generate test.exe 
